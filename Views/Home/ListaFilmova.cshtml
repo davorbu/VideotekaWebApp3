@@ -1,0 +1,33 @@
+﻿@model List<VideotekaWebApp3.Models.Film>
+
+
+<table class="table table-hover">
+    <tr>
+        <th>
+           Naslov
+        </th>
+        <th>
+           Zanr
+        </th>
+        <th>
+            Godina
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="cursor:pointer" onclick="AjaxAlert('/filmjson/@item.Id')">
+        <td>
+            @Html.DisplayFor(modelItem => item.Naslov)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zanr)
+        </td>
+        <td>
+            @item.Godina.ToShortDateString()
+        </td>
+        
+    </tr>
+}
+
+</table>
